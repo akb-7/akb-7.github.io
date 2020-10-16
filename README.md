@@ -1,1 +1,1 @@
-This particular website was created with the help of w3 schools template
+This particular repository contains the code for my personal portfolio
