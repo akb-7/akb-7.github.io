@@ -2,286 +2,243 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aakash B | Software Engineer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body,
-    html {
-      font-family: 'Inter', sans-serif;
-      background: #0f0f0f;
-      color: #fff;
-      overflow-x: hidden;
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aakash B | Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
 
-    main {
-      flex: 1;
-    }
+        a {
+            transition: color 0.3s;
+        }
 
-    /* Neon headings (reduced intensity) */
-    h1,
-    h2,
-    h3 {
-      color: #fff;
-      text-shadow: 0 0 3px #0ff, 0 0 6px #0ff;
-      transition: text-shadow 0.5s ease;
-    }
+        a:hover {
+            color: #2563EB;
+        }
 
-    /* Glow pulse when visible */
-    h1.glow,
-    h2.glow,
-    h3.glow {
-      animation: pulse 1.2s ease-in-out infinite alternate;
-    }
+        .section-title {
+            @apply text-3xl font-bold border-b-4 border-indigo-500 pb-2 mb-8;
+        }
 
-    @keyframes pulse {
-      0% {
-        text-shadow: 0 0 3px #0ff, 0 0 6px #0ff;
-      }
+        /* Typewriter effect */
+        .typewriter {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 3px solid #fff;
+            white-space: nowrap;
+            animation: typing 3s steps(30, end) infinite, blink 0.7s step-end infinite;
+        }
 
-      50% {
-        text-shadow: 0 0 6px #0ff, 0 0 12px #0ff;
-      }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
 
-      100% {
-        text-shadow: 0 0 3px #0ff, 0 0 6px #0ff;
-      }
-    }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
 
-    /* Particle background */
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
+        /* Parallax sections */
+        .parallax {
+            transform: translateY(0px);
+            transition: transform 0.2s ease-out;
+        }
 
-    /* Typewriter effect */
-    .typewriter {
-      display: inline-block;
-      border-right: 2px solid #0ff;
-      white-space: nowrap;
-      overflow: hidden;
-    }
+        /* Skill badges */
+        .skill-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background: linear-gradient(to right, #3B82F6, #8B5CF6);
+            color: white;
+            margin: 0.25rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-    /* Fade in sections */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 1s ease-out;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Parallax sections */
-    .parallax {
-      transform: translateY(0px);
-      transition: transform 0.2s ease-out;
-    }
-
-    /* Project card ripple effect */
-    .project-card {
-      position: relative;
-      overflow: hidden;
-      background-color: #111;
-      border-radius: 1rem;
-      padding: 1rem;
-      transition: transform 0.3s;
-    }
-
-    .project-card:hover {
-      transform: scale(1.05);
-    }
-
-    .project-card::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      pointer-events: none;
-      background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 10%, transparent 10.01%);
-      background-repeat: no-repeat;
-      background-position: 50%;
-      transform: scale(10);
-      opacity: 0;
-      transition: transform 0.5s, opacity 1s;
-    }
-
-    .project-card:hover::after {
-      transform: scale(0);
-      opacity: 1;
-    }
-
-    /* SVG separators */
-    .separator {
-      display: block;
-      width: 100%;
-      height: 80px;
-    }
-
-    /* Footer */
-    footer {
-      position: relative;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      padding: 1rem;
-      background-color: #111;
-    }
-  </style>
+        .skill-badge:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #3B82F6;
+        }
+    </style>
 </head>
 
-<body>
-  <!-- Header -->
-  <header class="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
-    <div id="particles-js"></div>
-    <div class="relative z-10 space-y-4">
-      <h1 class="text-6xl font-extrabold">Aakash B</h1>
-      <p class="text-3xl">
-        <span id="typed" class="typewriter"></span>
-      </p>
-      <p class="space-x-4">
-        <a href="mailto:aakashbabu.2000@gmail.com" class="underline hover:text-cyan-400">aakashbabu.2000@gmail.com</a>
-        <span>•</span>
-        <span>+91 91760 47577</span>
-      </p>
-      <p class="space-x-4">
-        <a href="https://www.linkedin.com/in/akb7" target="_blank" class="hover:text-cyan-400">LinkedIn</a>
-        <a href="https://leetcode.com/akb7" target="_blank" class="hover:text-cyan-400">LeetCode</a>
-        <a href="https://github.com/akb-7" target="_blank" class="hover:text-cyan-400">GitHub</a>
-      </p>
-    </div>
-  </header>
+<body class="bg-gray-50 text-gray-800">
 
-  <main class="container mx-auto px-6 py-12 space-y-24">
-    <!-- Summary -->
-    <section class="parallax fade-in">
-      <h2 class="text-3xl font-bold mb-6">Summary</h2>
-      <p class="text-lg leading-relaxed">
-        Software Engineer with <strong>3+ years of experience</strong> at <strong>Amazon and Comcast</strong>, specializing in <strong>backend systems</strong>, <strong>AWS cloud infrastructure</strong>, and <strong>large-scale cost optimization</strong>. Proven record of building production-grade systems that <strong>reduced cloud spend by 20%</strong>, <strong>cut latency by 12%</strong>, and <strong>saved over $90K annually</strong>. Passionate about building intelligent AI/ML systems to solve complex business problems.
-      </p>
-    </section>
-
-    <svg class="separator" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#0f0f0f" d="M0,0 C150,80 350,0 500,50 L500,0 L0,0 Z"></path>
-    </svg>
-
-    <!-- Skills -->
-    <section class="parallax fade-in">
-      <h2 class="text-3xl font-bold mb-6">Skills</h2>
-      <div class="flex flex-wrap gap-3">
-        <span class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Python</span>
-        <span class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Java</span>
-        <span class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">C++</span>
-        <span class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">C</span>
-        <span class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">AWS</span>
-        <span class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Terraform</span>
-        <span class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Kubernetes</span>
-        <span class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Docker</span>
-      </div>
-    </section>
-
-    <svg class="separator" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#0f0f0f" d="M0,0 C150,50 350,100 500,50 L500,0 L0,0 Z"></path>
-    </svg>
-
-    <!-- Projects -->
-    <section class="parallax fade-in">
-      <h2 class="text-3xl font-bold mb-6">Projects</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="project-card">
-          <h3 class="font-semibold text-lg">Rice Disease Classification</h3>
-          <p>Developed a CNN model using public datasets and created a Flask web app for real-time predictions.</p>
-          <a href="https://github.com/akb-7/Rice-Disease-Classification" target="_blank" class="underline text-cyan-400 mt-1 inline-block">View on GitHub</a>
+    <!-- Particle background header -->
+    <header class="relative h-screen bg-gradient-to-r from-indigo-600 to-purple-600 text-white overflow-hidden">
+        <div id="particles-js" class="absolute top-0 left-0 w-full h-full z-0"></div>
+        <div class="relative z-10 flex flex-col justify-center items-center h-full text-center space-y-4">
+            <h1 class="text-6xl font-extrabold">Aakash B</h1>
+            <p class="text-2xl">
+                <span id="typewriter" class="typewriter"></span>
+            </p>
+            <p class="space-x-4">
+                <a href="mailto:aakashbabu.2000@gmail.com" class="underline hover:text-gray-200">aakashbabu.2000@gmail.com</a>
+                <span>•</span>
+                <span>+91 91760 47577</span>
+            </p>
+            <p class="space-x-4">
+                <a href="https://www.linkedin.com/in/akb7" target="_blank" class="hover:text-gray-200">LinkedIn</a>
+                <a href="https://leetcode.com/akb7" target="_blank" class="hover:text-gray-200">LeetCode</a>
+                <a href="https://github.com/akb-7" target="_blank" class="hover:text-gray-200">GitHub</a>
+            </p>
         </div>
-        <div class="project-card">
-          <h3 class="font-semibold text-lg">Churn & Salary Prediction Regression</h3>
-          <p>Built a deep learning pipeline for churn classification and salary regression using ANN.</p>
-          <a href="https://github.com/ab234_comcast/MachineLearningProjects/tree/main/churn-prediction" target="_blank" class="underline text-cyan-400 mt-1 inline-block">View on GitHub</a>
-        </div>
-        <div class="project-card">
-          <h3 class="font-semibold text-lg">AWS Cost Optimizer</h3>
-          <p>Automated AWS resource cleaning, reducing monthly cloud spend by 20% and implemented observability.</p>
-          <a href="https://github.com/akb-7/aws-cost-optimizer" target="_blank" class="underline text-cyan-400 mt-1 inline-block">View on GitHub</a>
-        </div>
-        <div class="project-card">
-          <h3 class="font-semibold text-lg">Hash Algorithm Microservice</h3>
-          <p>Created a scalable hash microservice for latency-critical applications using Spring Boot.</p>
-          <a href="https://github.com/akb-7/hash-microservice" target="_blank" class="underline text-cyan-400 mt-1 inline-block">View on GitHub</a>
-        </div>
-        <div class="project-card">
-          <h3 class="font-semibold text-lg">PostgreSQL Dashboard</h3>
-          <p>Built Grafana dashboards and alert pipelines reducing critical daily alerts from 60 to 6.</p>
-          <a href="https://github.com/akb-7/postgres-dashboard" target="_blank" class="underline text-cyan-400 mt-1 inline-block">View on GitHub</a>
-        </div>
-      </div>
-    </section>
-  </main>
+    </header>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Aakash B | <a href="mailto:aakashbabu.2000@gmail.com" class="underline">aakashbabu.2000@gmail.com</a></p>
-  </footer>
+    <main class="container mx-auto px-6 py-12 space-y-24">
 
-  <script>
-    window.onload = () => {
-      // Particle.js
-      particlesJS('particles-js', {
-        particles: {
-          number: { value: 80 },
-          color: { value: "#0ff" },
-          shape: { type: "circle" },
-          opacity: { value: 0.5 },
-          size: { value: 3 },
-          move: { enable: true, speed: 2 }
-        },
-        interactivity: { events: { onhover: { enable: true, mode: "repulse" } } }
-      });
+        <!-- Summary -->
+        <section class="parallax fade-in">
+            <h2 class="section-title">Summary</h2>
+            <p class="text-lg leading-relaxed">
+                Software Engineer with <strong>3+ years of experience</strong> at <strong>Amazon and Comcast</strong>,
+                specializing in <strong>backend systems</strong>, <strong>AWS cloud infrastructure</strong>, and
+                <strong>large-scale cost optimization</strong>. Proven record of building production-grade systems that
+                <strong>reduced cloud spend by 20%</strong>, <strong>cut latency by 12%</strong>, and <strong>saved over
+                    $90K annually</strong>. Passionate about building intelligent AI/ML systems to solve complex
+                business problems.
+            </p>
+        </section>
 
-      // Typed.js
-      new Typed("#typed", {
-        strings: ["Software Engineer", "Backend Developer", "AWS Specialist", "AI/ML Enthusiast"],
-        typeSpeed: 100,
-        backSpeed: 50,
-        loop: true
-      });
+        <!-- Experience -->
+        <section class="parallax fade-in">
+            <h2 class="section-title">Experience</h2>
+            <div class="space-y-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="font-semibold text-xl">Comcast CIEC – Development Engineer II <span class="text-gray-500 italic text-sm">Jul 2023 – Present</span></h3>
+                    <ul class="list-disc list-inside mt-3 space-y-1">
+                        <li>Developed AWS resource cleaning package reducing spend by <strong>20%</strong>.</li>
+                        <li>Reduced daily alerts from 60 to 6 using <strong>PostgreSQL & Grafana</strong>.</li>
+                        <li>Migrated secrets to <strong>HashiCorp Vault KV2</strong>, improving security.</li>
+                    </ul>
+                </div>
 
-      // Scroll-triggered glow
-      function reveal() {
-        document.querySelectorAll('.fade-in').forEach(el => {
-          const top = el.getBoundingClientRect().top;
-          const windowHeight = window.innerHeight;
-          if (top < windowHeight - 100) {
-            el.classList.add('visible');
-            el.querySelectorAll('h2, h3').forEach(h => h.classList.add('glow'));
-          }
+                <div class="bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="font-semibold text-xl">Amazon – Software Development Engineer I <span class="text-gray-500 italic text-sm">Jul 2022 – Jun 2023</span></h3>
+                    <ul class="list-disc list-inside mt-3 space-y-1">
+                        <li>Optimized response fields saving <strong>$90K+ annually</strong>.</li>
+                        <li>Built custom hash algorithm reducing latency by <strong>12%</strong>.</li>
+                        <li>Owned 8+ microservices; implemented observability and scaling.</li>
+                        <li>Resolved 25+ critical production bugs.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="parallax fade-in">
+            <h2 class="section-title">Skills</h2>
+            <div class="flex flex-wrap">
+                <!-- Languages -->
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">Java</span>
+                <span class="skill-badge">C++</span>
+                <span class="skill-badge">C</span>
+
+                <!-- Cloud & DevOps -->
+                <span class="skill-badge">AWS</span>
+                <span class="skill-badge">Terraform</span>
+                <span class="skill-badge">Kubernetes</span>
+                <span class="skill-badge">Docker</span>
+                <span class="skill-badge">Concourse CI</span>
+                <span class="skill-badge">Grafana</span>
+                <span class="skill-badge">ELK</span>
+
+                <!-- Databases -->
+                <span class="skill-badge">MySQL</span>
+                <span class="skill-badge">PostgreSQL</span>
+
+                <!-- AI/ML & Tools -->
+                <span class="skill-badge">TensorFlow</span>
+                <span class="skill-badge">Keras</span>
+                <span class="skill-badge">Scikit-learn</span>
+                <span class="skill-badge">Pandas</span>
+                <span class="skill-badge">NumPy</span>
+                <span class="skill-badge">Flask</span>
+                <span class="skill-badge">Streamlit</span>
+                <span class="skill-badge">OpenCV</span>
+                <span class="skill-badge">Git</span>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="parallax fade-in">
+            <h2 class="section-title">Projects</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                    <h3 class="font-semibold text-lg">Rice Disease Classification</h3>
+                    <a href="https://github.com/akb-7/Rice-Disease-Classification" class="text-blue-600 underline mt-1 inline-block">Source</a>
+                    <ul class="list-disc list-inside mt-2">
+                        <li>Developed CNN model using public datasets.</li>
+                        <li>Created Flask web app for real-time predictions.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                    <h3 class="font-semibold text-lg">Other Top Project</h3>
+                    <a href="https://github.com/akb-7/YourOtherProject" class="text-blue-600 underline mt-1 inline-block">Source</a>
+                    <ul class="list-disc list-inside mt-2">
+                        <li>Brief description of your other relevant project.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Particle.js config
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80 },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                move: { enable: true, speed: 2, direction: "none", out_mode: "bounce" }
+            },
+            interactivity: {
+                events: { onhover: { enable: true, mode: "repulse" } }
+            }
         });
-      }
-      reveal();
-      window.addEventListener('scroll', reveal);
 
-      // Parallax effect
-      window.addEventListener('scroll', () => {
-        document.querySelectorAll('.parallax').forEach(section => {
-          section.style.transform = translateY(${window.pageYOffset * 0.2}px);
+        // Typewriter effect
+        const typewriterText = ["Software Engineer", "Backend Developer", "AWS Cloud Specialist", "AI/ML Enthusiast"];
+        let i = 0, j = 0, currentText = "", isDeleting = false;
+        const typewriterEl = document.getElementById('typewriter');
+
+        function type() {
+            if (i >= typewriterText.length) i = 0;
+            let fullText = typewriterText[i];
+            if (isDeleting) {
+                currentText = fullText.substring(0, currentText.length - 1);
+            } else {
+                currentText = fullText.substring(0, currentText.length + 1);
+            }
+            typewriterEl.textContent = currentText;
+            let typeSpeed = isDeleting ? 50 : 150;
+            if (!isDeleting && currentText === fullText) { typeSpeed = 2000; isDeleting = true; }
+            else if (isDeleting && currentText === "") { isDeleting = false; i++; typeSpeed = 500; }
+            setTimeout(type, typeSpeed);
+        }
+        type();
+
+        // Parallax scroll
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.parallax').forEach(section => {
+                const speed = 0.3;
+                const offset = window.pageYOffset;
+                section.style.transform = translateY(${offset * speed}px);
+            });
         });
-      });
-    };
-  </script>
+    </script>
+
 </body>
 
 </html>
