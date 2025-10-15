@@ -1,12 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>😎Aakash Portfolio😎</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aakash B | Software Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    a { transition: color 0.2s; }
+    a:hover { color: #2563EB; }
+    .section-title { @apply text-xl font-bold border-b-2 border-gray-300 pb-1 mb-4; }
+  </style>
 </head>
-<body>
-        
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-10">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-extrabold mb-2">Aakash B</h1>
+      <p class="text-lg mb-2">Software Development Engineer</p>
+      <p class="space-x-4">
+        <a href="mailto:aakashbabu.2000@gmail.com" class="underline">aakashbabu.2000@gmail.com</a>
+        <span>•</span>
+        <span>+91 91760 47577</span>
+      </p>
+      <p class="mt-2 space-x-4">
+        <a href="https://www.linkedin.com/in/akb7" target="_blank" class="hover:text-gray-200">LinkedIn</a>
+        <a href="https://leetcode.com/akb7" target="_blank" class="hover:text-gray-200">LeetCode</a>
+        <a href="https://github.com/akb-7" target="_blank" class="hover:text-gray-200">GitHub</a>
+      </p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-10 space-y-12">
+
+    <!-- Summary -->
+    <section>
+      <h2 class="section-title">Summary</h2>
+      <p>
+        Software Engineer with <strong>3+ years of experience</strong> at <strong>Amazon and Comcast</strong>, specializing in <strong>backend systems</strong>, <strong>AWS cloud infrastructure</strong>, and <strong>large-scale cost optimization</strong>. Proven record of building production-grade systems that <strong>reduced cloud spend by 20%</strong>, <strong>cut latency by 12%</strong>, and <strong>saved over $90K annually</strong>. Passionate about building intelligent AI/ML systems to solve complex business problems.
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <h2 class="section-title">Experience</h2>
+
+      <div class="space-y-6">
+
+        <div>
+          <h3 class="font-semibold text-lg">Comcast CIEC – Development Engineer II <span class="text-gray-500 italic">Jul 2023 – Present</span></h3>
+          <ul class="list-disc list-inside mt-2 space-y-1">
+            <li>Developed a package using <strong>Python and AWS SDK</strong> to clean unused AWS resources (ECR, EBS), leading to a <strong>20% reduction in cloud spend</strong>.</li>
+            <li>Reduced daily alerts from 60 to 6 by validating metrics using <strong>PostgreSQL and Grafana</strong>.</li>
+            <li>Migrated secrets to <strong>HashiCorp Vault KV2</strong>, improving security.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-lg">Amazon – Software Development Engineer I <span class="text-gray-500 italic">Jul 2022 – Jun 2023</span></h3>
+          <ul class="list-disc list-inside mt-2 space-y-1">
+            <li>Optimized response fields, reducing latency and saving <strong>$90K+ annually</strong>.</li>
+            <li>Built a <strong>custom hash algorithm</strong>, reducing latency by <strong>12%</strong>.</li>
+            <li>Owned <strong>8+ microservices</strong>, implemented observability and scaling.</li>
+            <li>Resolved <strong>25+ critical bugs</strong> in production.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-lg">Comcast CIEC – Development Engineer Intern <span class="text-gray-500 italic">Jan 2022 – Jun 2022</span></h3>
+          <ul class="list-disc list-inside mt-2 space-y-1">
+            <li>Created a real-time deployment dashboard using <strong>AWS SDK</strong>.</li>
+            <li>Deployed services to <strong>CloudFoundry via Concourse CI/CD</strong>.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2 class="section-title">Education</h2>
+      <p>
+        <strong>SASTRA University, Thanjavur</strong><br>
+        B.Tech (Hons.) in <strong>Computer Science & Engineering</strong>, 2018 – 2022<br>
+        CGPA: <strong>7.89 / 10</strong>
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h2 class="section-title">Skills</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p><strong>Languages:</strong> Python, Java, C++, C</p>
+          <p><strong>Cloud & DevOps:</strong> AWS, Terraform, Kubernetes, Docker, Concourse CI, Grafana, ELK</p>
+        </div>
+        <div>
+          <p><strong>Databases:</strong> MySQL, PostgreSQL</p>
+          <p><strong>AI/ML & Tools:</strong> TensorFlow, Keras, Scikit-learn, Pandas, NumPy, Flask, Streamlit, OpenCV, Git</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+      <h2 class="section-title">Projects</h2>
+      <ul class="space-y-4 list-decimal list-inside">
+        <li>
+          <strong>Churn & Salary Prediction Regression</strong> 
+          <a href="https://github.com/ab234_comcast/MachineLearningProjects/tree/main/churn-prediction" class="text-blue-600">[Source]</a>
+          <ul class="list-disc list-inside ml-4 mt-1">
+            <li>Built a deep learning pipeline for churn classification using ANN.</li>
+            <li>Extended the same dataset to predict salary via ANN regression.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Rice Disease Classification</strong> 
+          <a href="https://github.com/akb-7/Rice-Disease-Classification" class="text-blue-600">[Source]</a>
+          <ul class="list-disc list-inside ml-4 mt-1">
+            <li>Developed a CNN model using public datasets.</li>
+            <li>Created a Flask web app to deliver real-time predictions.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Face Recognition System</strong> 
+          <a href="https://github.com/akb-7/IOTProject" class="text-blue-600">[Source]</a>
+          <ul class="list-disc list-inside ml-4 mt-1">
+            <li>Built facial recognition using CNNs from live camera feeds.</li>
+            <li>Integrated into Raspberry Pi for automated attendance tracking.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Fake Tweets Prediction</strong> 
+          <a href="https://github.com/ab234_comcast/MachineLearningProjects/blob/main/fake-tweets-prediction" class="text-blue-600">[Source]</a>
+          <ul class="list-disc list-inside ml-4 mt-1">
+            <li>Built a fake news classifier using <strong>TF-IDF + Naive Bayes</strong>.</li>
+            <li>Packaged into Flask app for easy deployment and updates.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Achievements & Certifications -->
+    <section>
+      <h2 class="section-title">Achievements & Certifications</h2>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Published research paper at ICICCT Springer <a href="https://link.springer.com/chapter/10.1007/978-981-15-7345-3_5" class="text-blue-600">[Source]</a>.</li>
+        <li>Highfive Award at Comcast for alert optimization.</li>
+        <li>Top 2% in HackerEarth Hackathon <a href="https://www.linkedin.com/feed/update/urn:li:activity:6703675647857885184/" class="text-blue-600">[Source]</a>.</li>
+        <li>Certifications:
+          <ul class="list-disc list-inside ml-4">
+            <li>Machine Learning – Andrew Ng (Coursera) <a href="https://www.coursera.org/account/accomplishments/certificate/RB4ZL9JYNW6A" class="text-blue-600">[Source]</a></li>
+            <li>Basic to Advanced RAG (GenAI) <a href="https://comcast.udemy.com/certificate/UC-61c58120-0e63-4be1-8815-0da155e23b3c/" class="text-blue-600">[Source]</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-200 py-6 text-center">
+    &copy; 2025 Aakash B. Built with <a href="https://tailwindcss.com" class="underline">TailwindCSS</a>.
+  </footer>
+
 </body>
 </html>
