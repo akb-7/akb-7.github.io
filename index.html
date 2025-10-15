@@ -1,172 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aakash B | Software Engineer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    a { transition: color 0.2s; }
-    a:hover { color: #2563EB; }
-    .section-title { @apply text-xl font-bold border-b-2 border-gray-300 pb-1 mb-4; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aakash B | Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f0f0f;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Neon headings (reduced intensity) */
+        h1,
+        h2,
+        h3 {
+            color: #fff;
+            text-shadow: 0 0 3px #0ff, 0 0 6px #0ff;
+            transition: text-shadow 0.5s ease;
+        }
+
+        /* Glow pulse when visible */
+        h1.glow,
+        h2.glow,
+        h3.glow {
+            animation: pulse 1.2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                text-shadow: 0 0 3px #0ff, 0 0 6px #0ff;
+            }
+
+            50% {
+                text-shadow: 0 0 6px #0ff, 0 0 12px #0ff;
+            }
+
+            100% {
+                text-shadow: 0 0 3px #0ff, 0 0 6px #0ff;
+            }
+        }
+
+        /* Particle background container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* Typewriter effect */
+        .typewriter {
+            display: inline-block;
+            border-right: 2px solid #0ff;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        /* Fade in */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax sections */
+        .parallax {
+            transform: translateY(0px);
+            transition: transform 0.2s ease-out;
+        }
+
+        /* Skill bars */
+        .skill-bar {
+            height: 12px;
+            border-radius: 9999px;
+            background-color: #222;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0ff, #00f);
+            width: 0%;
+            transition: width 1.2s ease-in-out;
+        }
+
+        /* Project card ripple effect */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            background-color: #111;
+            border-radius: 1rem;
+            padding: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10);
+            opacity: 0;
+            transition: transform 0.5s, opacity 1s;
+        }
+
+        .project-card:hover::after {
+            transform: scale(0);
+            opacity: 1;
+        }
+
+        /* SVG separators */
+        .separator {
+            display: block;
+            width: 100%;
+            height: 80px;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-10">
-    <div class="container mx-auto text-center">
-      <h1 class="text-4xl font-extrabold mb-2">Aakash B</h1>
-      <p class="text-lg mb-2">Software Development Engineer</p>
-      <p class="space-x-4">
-        <a href="mailto:aakashbabu.2000@gmail.com" class="underline">aakashbabu.2000@gmail.com</a>
-        <span>•</span>
-        <span>+91 91760 47577</span>
-      </p>
-      <p class="mt-2 space-x-4">
-        <a href="https://www.linkedin.com/in/akb7" target="_blank" class="hover:text-gray-200">LinkedIn</a>
-        <a href="https://leetcode.com/akb7" target="_blank" class="hover:text-gray-200">LeetCode</a>
-        <a href="https://github.com/akb-7" target="_blank" class="hover:text-gray-200">GitHub</a>
-      </p>
-    </div>
-  </header>
+<body>
 
-  <main class="container mx-auto px-6 py-10 space-y-12">
-
-    <!-- Summary -->
-    <section>
-      <h2 class="section-title">Summary</h2>
-      <p>
-        Software Engineer with <strong>3+ years of experience</strong> at <strong>Amazon and Comcast</strong>, specializing in <strong>backend systems</strong>, <strong>AWS cloud infrastructure</strong>, and <strong>large-scale cost optimization</strong>. Proven record of building production-grade systems that <strong>reduced cloud spend by 20%</strong>, <strong>cut latency by 12%</strong>, and <strong>saved over $90K annually</strong>. Passionate about building intelligent AI/ML systems to solve complex business problems.
-      </p>
-    </section>
-
-    <!-- Experience -->
-    <section>
-      <h2 class="section-title">Experience</h2>
-
-      <div class="space-y-6">
-
-        <div>
-          <h3 class="font-semibold text-lg">Comcast CIEC – Development Engineer II <span class="text-gray-500 italic">Jul 2023 – Present</span></h3>
-          <ul class="list-disc list-inside mt-2 space-y-1">
-            <li>Developed a package using <strong>Python and AWS SDK</strong> to clean unused AWS resources (ECR, EBS), leading to a <strong>20% reduction in cloud spend</strong>.</li>
-            <li>Reduced daily alerts from 60 to 6 by validating metrics using <strong>PostgreSQL and Grafana</strong>.</li>
-            <li>Migrated secrets to <strong>HashiCorp Vault KV2</strong>, improving security.</li>
-          </ul>
+    <!-- Header -->
+    <header class="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+        <div id="particles-js"></div>
+        <div class="relative z-10 space-y-4">
+            <h1 class="text-6xl font-extrabold">Aakash B</h1>
+            <p class="text-3xl">
+                <span id="typed" class="typewriter"></span>
+            </p>
+            <p class="space-x-4">
+                <a href="mailto:aakashbabu.2000@gmail.com"
+                    class="underline hover:text-cyan-400">aakashbabu.2000@gmail.com</a>
+                <span>•</span>
+                <span>+91 91760 47577</span>
+            </p>
+            <p class="space-x-4">
+                <a href="https://www.linkedin.com/in/akb7" target="_blank" class="hover:text-cyan-400">LinkedIn</a>
+                <a href="https://leetcode.com/akb7" target="_blank" class="hover:text-cyan-400">LeetCode</a>
+                <a href="https://github.com/akb-7" target="_blank" class="hover:text-cyan-400">GitHub</a>
+            </p>
         </div>
+    </header>
 
-        <div>
-          <h3 class="font-semibold text-lg">Amazon – Software Development Engineer I <span class="text-gray-500 italic">Jul 2022 – Jun 2023</span></h3>
-          <ul class="list-disc list-inside mt-2 space-y-1">
-            <li>Optimized response fields, reducing latency and saving <strong>$90K+ annually</strong>.</li>
-            <li>Built a <strong>custom hash algorithm</strong>, reducing latency by <strong>12%</strong>.</li>
-            <li>Owned <strong>8+ microservices</strong>, implemented observability and scaling.</li>
-            <li>Resolved <strong>25+ critical bugs</strong> in production.</li>
-          </ul>
-        </div>
+    <main class="container mx-auto px-6 py-12 space-y-24">
 
-        <div>
-          <h3 class="font-semibold text-lg">Comcast CIEC – Development Engineer Intern <span class="text-gray-500 italic">Jan 2022 – Jun 2022</span></h3>
-          <ul class="list-disc list-inside mt-2 space-y-1">
-            <li>Created a real-time deployment dashboard using <strong>AWS SDK</strong>.</li>
-            <li>Deployed services to <strong>CloudFoundry via Concourse CI/CD</strong>.</li>
-          </ul>
-        </div>
+        <!-- Summary -->
+        <section class="parallax fade-in">
+            <h2 class="text-3xl font-bold mb-6">Summary</h2>
+            <p class="text-lg leading-relaxed">
+                Software Engineer with <strong>3+ years of experience</strong> at <strong>Amazon and Comcast</strong>,
+                specializing in <strong>backend systems</strong>, <strong>AWS cloud infrastructure</strong>, and
+                <strong>large-scale cost optimization</strong>. Proven record of building production-grade systems that
+                <strong>reduced cloud spend by 20%</strong>, <strong>cut latency by 12%</strong>, and <strong>saved over
+                    $90K annually</strong>. Passionate about building intelligent AI/ML systems to solve complex
+                business problems.
+            </p>
+        </section>
 
-      </div>
-    </section>
+        <svg class="separator" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#0f0f0f" d="M0,0 C150,80 350,0 500,50 L500,0 L0,0 Z"></path>
+        </svg>
 
-    <!-- Education -->
-    <section>
-      <h2 class="section-title">Education</h2>
-      <p>
-        <strong>SASTRA University, Thanjavur</strong><br>
-        B.Tech (Hons.) in <strong>Computer Science & Engineering</strong>, 2018 – 2022<br>
-        CGPA: <strong>7.89 / 10</strong>
-      </p>
-    </section>
+        <!-- Experience -->
+        <section class="parallax fade-in">
+            <h2 class="text-3xl font-bold mb-6">Experience</h2>
+            <div class="space-y-8">
+                <div class="project-card">
+                    <h3 class="text-xl font-semibold">Comcast CIEC – Development Engineer II <span
+                            class="text-gray-400 italic text-sm">Jul 2023 – Present</span></h3>
+                    <ul class="list-disc list-inside mt-3 space-y-1">
+                        <li>Developed AWS resource cleaning package reducing spend by <strong>20%</strong>.</li>
+                        <li>Reduced daily alerts from 60 to 6 using <strong>PostgreSQL & Grafana</strong>.</li>
+                        <li>Migrated secrets to <strong>HashiCorp Vault KV2</strong>, improving security.</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <h3 class="text-xl font-semibold">Amazon – Software Development Engineer I <span
+                            class="text-gray-400 italic text-sm">Jul 2022 – Jun 2023</span></h3>
+                    <ul class="list-disc list-inside mt-3 space-y-1">
+                        <li>Optimized response fields saving <strong>$90K+ annually</strong>.</li>
+                        <li>Built custom hash algorithm reducing latency by <strong>12%</strong>.</li>
+                        <li>Owned 8+ microservices; implemented observability and scaling.</li>
+                        <li>Resolved 25+ critical production bugs.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <!-- Skills -->
-    <section>
-      <h2 class="section-title">Skills</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <p><strong>Languages:</strong> Python, Java, C++, C</p>
-          <p><strong>Cloud & DevOps:</strong> AWS, Terraform, Kubernetes, Docker, Concourse CI, Grafana, ELK</p>
-        </div>
-        <div>
-          <p><strong>Databases:</strong> MySQL, PostgreSQL</p>
-          <p><strong>AI/ML & Tools:</strong> TensorFlow, Keras, Scikit-learn, Pandas, NumPy, Flask, Streamlit, OpenCV, Git</p>
-        </div>
-      </div>
-    </section>
+        <svg class="separator" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#0f0f0f" d="M0,0 C150,50 350,100 500,50 L500,0 L0,0 Z"></path>
+        </svg>
 
-    <!-- Projects -->
-    <section>
-      <h2 class="section-title">Projects</h2>
-      <ul class="space-y-4 list-decimal list-inside">
-        <li>
-          <strong>Churn & Salary Prediction Regression</strong> 
-          <a href="https://github.com/ab234_comcast/MachineLearningProjects/tree/main/churn-prediction" class="text-blue-600">[Source]</a>
-          <ul class="list-disc list-inside ml-4 mt-1">
-            <li>Built a deep learning pipeline for churn classification using ANN.</li>
-            <li>Extended the same dataset to predict salary via ANN regression.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Rice Disease Classification</strong> 
-          <a href="https://github.com/akb-7/Rice-Disease-Classification" class="text-blue-600">[Source]</a>
-          <ul class="list-disc list-inside ml-4 mt-1">
-            <li>Developed a CNN model using public datasets.</li>
-            <li>Created a Flask web app to deliver real-time predictions.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Face Recognition System</strong> 
-          <a href="https://github.com/akb-7/IOTProject" class="text-blue-600">[Source]</a>
-          <ul class="list-disc list-inside ml-4 mt-1">
-            <li>Built facial recognition using CNNs from live camera feeds.</li>
-            <li>Integrated into Raspberry Pi for automated attendance tracking.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Fake Tweets Prediction</strong> 
-          <a href="https://github.com/ab234_comcast/MachineLearningProjects/blob/main/fake-tweets-prediction" class="text-blue-600">[Source]</a>
-          <ul class="list-disc list-inside ml-4 mt-1">
-            <li>Built a fake news classifier using <strong>TF-IDF + Naive Bayes</strong>.</li>
-            <li>Packaged into Flask app for easy deployment and updates.</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+        <!-- Skills -->
+        <section class="parallax fade-in">
+            <h2 class="text-3xl font-bold mb-6">Skills</h2>
 
-    <!-- Achievements & Certifications -->
-    <section>
-      <h2 class="section-title">Achievements & Certifications</h2>
-      <ul class="list-disc list-inside space-y-1">
-        <li>Published research paper at ICICCT Springer <a href="https://link.springer.com/chapter/10.1007/978-981-15-7345-3_5" class="text-blue-600">[Source]</a>.</li>
-        <li>Highfive Award at Comcast for alert optimization.</li>
-        <li>Top 2% in HackerEarth Hackathon <a href="https://www.linkedin.com/feed/update/urn:li:activity:6703675647857885184/" class="text-blue-600">[Source]</a>.</li>
-        <li>Certifications:
-          <ul class="list-disc list-inside ml-4">
-            <li>Machine Learning – Andrew Ng (Coursera) <a href="https://www.coursera.org/account/accomplishments/certificate/RB4ZL9JYNW6A" class="text-blue-600">[Source]</a></li>
-            <li>Basic to Advanced RAG (GenAI) <a href="https://comcast.udemy.com/certificate/UC-61c58120-0e63-4be1-8815-0da155e23b3c/" class="text-blue-600">[Source]</a></li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+            <!-- Skills as badges -->
+            <div class="flex flex-wrap gap-3">
+                <!-- Languages -->
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Python</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Java</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">C++</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">C</span>
 
-  </main>
+                <!-- Cloud & DevOps -->
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">AWS</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Terraform</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Kubernetes</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Docker</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Concourse
+                    CI</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Grafana</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">ELK</span>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-gray-200 py-6 text-center">
-    &copy; 2025 Aakash B. Built with <a href="https://tailwindcss.com" class="underline">TailwindCSS</a>.
-  </footer>
+                <!-- Databases -->
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">MySQL</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">PostgreSQL</span>
+
+                <!-- AI/ML & Tools -->
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">TensorFlow</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Keras</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Scikit-learn</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Pandas</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">NumPy</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Flask</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Streamlit</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">OpenCV</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-600 transition-all cursor-default">Git</span>
+            </div>
+        </section>
+
+
+
+        <svg class="separator" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#0f0f0f" d="M0,0 C150,70 350,20 500,60 L500,0 L0,0 Z"></path>
+        </svg>
+
+        <!-- Projects (Dynamic GitHub) -->
+        <section class="parallax fade-in">
+            <h2 class="text-3xl font-bold mb-6">Projects</h2>
+            <div id="projects" class="grid md:grid-cols-2 gap-6"></div>
+        </section>
+
+    </main>
+
+    <script>
+        // Particle.js config
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80 }, color: { value: "#0ff" }, shape: { type: "circle" },
+                opacity: { value: 0.5 }, size: { value: 3 }, move: { enable: true, speed: 2 }
+            },
+            interactivity: { events: { onhover: { enable: true, mode: "repulse" } } }
+        });
+
+        // Typed.js
+        new Typed("#typed", { strings: ["Software Engineer", "Backend Developer", "AWS Specialist", "AI/ML Enthusiast"], typeSpeed: 100, backSpeed: 50, loop: true });
+
+        // Fade-in sections + scroll-triggered glow
+        function reveal() {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (top < windowHeight - 100) {
+                    el.classList.add('visible');
+                    el.querySelectorAll('h2, h3').forEach(h => h.classList.add('glow'));
+                }
+            });
+        }
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.parallax').forEach(section => {
+                section.style.transform = translateY(${window.pageYOffset * 0.2}px);
+            });
+        });
+
+        // Animate skill bars
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.skill-bar-fill').forEach(bar => { bar.style.width = bar.style.width; });
+        });
+
+        // Fetch GitHub repos
+        fetch('https://api.github.com/users/akb-7/repos')
+            .then(res => res.json())
+            .then(repos => {
+                const container = document.getElementById('projects');
+                repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+                repos.forEach(repo => {
+                    if (repo.fork) return;
+                    const card = document.createElement('div');
+                    card.className = 'project-card';
+                    card.innerHTML = `<h3 class="font-semibold text-lg">${repo.name}</h3>
+      <p>${repo.description || 'No description available.'}</p>
+      <a href="${repo.html_url}" target="_blank" class="underline text-cyan-400 mt-1 inline-block">View on GitHub</a>`;
+                    container.appendChild(card);
+                });
+            });
+    </script>
 
 </body>
+
 </html>
